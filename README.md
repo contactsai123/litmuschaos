@@ -1,14 +1,15 @@
 # Handout for setting up and running Litmus Chaos experiments on Sock-Shop application
 ## Pre-Requisite:
-1) Provision a AWS Linux EC2 (t3.small) and install [kubectl 1.21](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
-2) Get the API key, default region etc., using AWS Configure command
+1) Provision a AWS Linux EC2 (t3.small) and connect using SSH client like Putty
+2) Configure the API key, default region etc., using AWS Configure command
 ```aws configure```
-3) Install [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html). We use eksctl which is a CLI tool for creating clusters on Amazon’s Elastic Kubernetes Service (EKS) - a managed Kubernetes service for EC2. Update the region as per the requirement:
+3) Install [kubectl 1.21](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+4) Install [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html). We use eksctl which is a CLI tool for creating clusters on Amazon’s Elastic Kubernetes Service (EKS) - a managed Kubernetes service for EC2. Update the region as per the requirement:
 
 ```eksctl create cluster --name sockshop-eks --version 1.21 --region us-east-2 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 3```
 
-4) Ensure all the required ports like 3000 (Grafana), 9091 (Prometheus), 9001 (Chaos front end portal), 9002 (Chaos portal service), 80 (sock-shop) are opened under AWS Security Groups inbound rules
-5) Install git using the command '''sudo yum install git'''
+4) Ensure all the required ports like 3000 (Grafana), 9091 (Prometheus), 9001 (Chaos front end portal), 9002 (Chaos portal service), 80 (sock-shop) are opened under AWS Security Groups - Inbound rules
+5) Install git using the command ```sudo yum install git```
 6) Ensure to clean up / decomission all the AWS resources once the experiments are completed (Refer Section 4), as it may incur signficant costs if left running
 
 ## Section 1 - Sock shop installation:
@@ -92,4 +93,4 @@ As a final step, when you run the chaos tests in the chaos center portal, you ca
 Clean up / Decomission all the AWS resources
 ```eksctl delete cluster --name=sockshop-eks --region=us-east-2```
 
-Goto AWS console once and verify if there are no active CloudFormation and delete all the cluster info (including VPC, NACL, Route tables etc.,)
+Goto AWS console once and verify if there are no active CloudFormation / EC2 / LoadBalancers running and delete if any
