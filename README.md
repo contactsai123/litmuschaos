@@ -6,6 +6,7 @@
 3) install eksctl We use eksctl which is a CLI tool for creating clusters on Amazon’s Elastic Kubernetes Service (EKS) - a managed Kubernetes service for EC2. Update the region as per the requirement:
 ```eksctl create cluster --name sockshop-eks --version 1.21 --region us-east-2 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 3```
 4) Ensure all the required ports like 3000 (Grafana), 9091 (Prometheus), 9001 (Chaos front end portal), 9002 (Chaos portal service), 80 (sock-shop) are opened under AWS Security Groups inbound rules
+5) Ensure to clean up / decomission all the AWS resources once the experiments are completed (Refer Section 4), as it may incur signficant costs if left running
 
 ## Section 1 - Sock shop installation:
 
@@ -82,4 +83,10 @@ In Grafana -> click settings on top right -> Annotation -> LitmusChaos_Metrics:
 Replace the search expression: litmuschaos_cluster_scoped_awaited_experiments{app="chaos-exporter", job="litmus/chaos-exporter"}
 
 As a final step, when you run the chaos tests in the chaos center portal, you can monitor the corresponding impact in the Grafana dashboards.
-J
+
+## Section 4 – Cleanup
+
+Clean up / Decomission all the AWS resources
+```eksctl delete cluster --name=sockshop-eks --region=us-east-2```
+
+Goto AWS console once and verify if there are no active CloudFormation and delete all the cluster info (including VPC, NACL, Route tables etc.,)
