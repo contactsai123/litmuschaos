@@ -27,8 +27,8 @@ Sock shop is a demo microservices e-commerce application. Sock Shop simulates th
 Switch region to us-west-2 through aws configure
 4)	Get the pods in the sock-shop namespace:
 ```kubectl get pods -n sock-shop```
-5)	Get services through LoadBalancer. Open the front-end service URL in browser
-```kubectl get svc -n sock-shop```
+5)	Get services through LoadBalancer. ```kubectl get svc -n sock-shop```. Open the front-end service URL in browser.
+
 
 ## Section 2 – Litmus installation for Chaos experiments:
 
@@ -43,10 +43,11 @@ Litmus is an open source Chaos Engineering platform that enables teams to identi
 4)	List the litmus pods and services:
 ```kubectl get pods -n litmus```
 ```kubectl get svc -n litmus```
+Open the litmus front end URL listed in browser along with the port number
 
 5)	Once you login to front-end portal (admin/litmus) and click on ChaosAgents tab..additional pods likechaos-operator will get installed and run. By default self-service agent will be in non-active status.  To enable to Active status, run the below command:
 ```kubectl edit configmap agent-config -n litmus```
-in the SERVER_ADDR update the litmus-portal-service URL with double quotes in the URL and save it. For e.g. http://a33a1d3df22d74be4b4b604aadf08f2a-1542679795.us-east-2.elb.amazonaws.com:9002/query
+in the SERVER_ADDR update the litmus-portal-service URL embedded with double quotes in the URL and save it. For e.g. "http://a33a1d3df22d74be4b4b604aadf08f2a-1542679795.us-east-2.elb.amazonaws.com:9002/query"
 Please note the above URL will be different based on the litmus-portal-server service URL
 6)	restart the kubectl services:
 ```kubectl apply -f litmus-2.3.0.yaml```
