@@ -12,6 +12,8 @@
 5) Install git using the command ```sudo yum install git```
 6) Ensure to clean up / decomission all the AWS resources once the experiments are completed (Refer Section 4), as it may incur signficant costs if left running
 
+Estimated time to provision all the required machines, softwares and sucessfully run experiments: Approx 60 - 90 minutes.
+
 ## Section 1 - Sock shop installation:
 
 Sock shop is a demo microservices e-commerce application. Sock Shop simulates the user-facing part of an e-commerce website that sells socks. It is intended to aid the demonstration and testing of microservice and cloud native technologies.
