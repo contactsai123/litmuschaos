@@ -61,7 +61,7 @@ d) Tune Workflow -> Add a new experiment. In this we are invoking network loss f
 10)	Click Finish and schedule now. During the chaos experiment you will see the Catalogue will not be loaded for the chaos experiment period in Sock-shop front end URL.
 
 
-## Section 2 – Observability dashboards using Grafana and Prometheus
+## Section 3 – Observability dashboards using Grafana and Prometheus
 
 1)	Create a new namespace called monitoring:
 ```kubectl create ns monitoring```
