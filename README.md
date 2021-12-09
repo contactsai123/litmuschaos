@@ -1,5 +1,5 @@
 # GTR Agile Alliance 2021 Lab Session 032 - The Know-Hows in Resilience & Reliability Testing for building an anti-fragile & highly scalable system 
-# Handout for setting up and running Litmus Chaos experiments on Sock-Shop application
+## Handout for setting up and running Litmus Chaos experiments on Sock-Shop application
 ## Pre-Requisite:
 1) Provision a AWS Linux EC2 (t3.small) and connect using SSH client like Putty
 2) Configure the API key, default region etc., using AWS Configure command
