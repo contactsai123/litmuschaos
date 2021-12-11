@@ -28,7 +28,7 @@ Sock shop is a demo microservices e-commerce application. Sock Shop simulates th
 Switch region to us-west-2 through aws configure
 4)	Get the pods in the sock-shop namespace:
 ```kubectl get pods -n sock-shop```
-5)	Get services through LoadBalancer. ```kubectl get svc -n sock-shop```. Open the front-end service URL in browser.
+5)	Get services through LoadBalancer. ```kubectl get svc -n sock-shop```. Open the front-end service URL (External-IP) in browser.
 
 
 ## Section 2 – Litmus installation for Chaos experiments:
@@ -92,7 +92,7 @@ https://github.com/litmuschaos/litmus/tree/master/monitoring#setup-prometheus-ts
 ```kubectl get pods -n monitoring```
 ```kubectl get svc -n monitoring```
 
-7) Open the Grafana URL with port number 3000. Login with default credentials in Grafana: admin/admin. By default, choose the default Sock-shop dashboard that is pre-available in grafana.
+7) Open the Grafana URL (External-IP) with port number 3000. Login with default credentials in Grafana: admin/admin. By default, choose the default Sock-shop dashboard that is pre-available in grafana.
 In Grafana -> click settings on top right -> Annotation -> LitmusChaos_Metrics:
 Replace the search expression: litmuschaos_cluster_scoped_awaited_experiments{app="chaos-exporter", job="litmus/chaos-exporter"}
 
