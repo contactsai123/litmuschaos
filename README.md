@@ -81,12 +81,18 @@ For Prometheus set up, run the below command:
 ```kubectl -n monitoring apply -f utils/prometheus/prometheus-scrape-configuration/```
 https://github.com/litmuschaos/litmus/tree/master/monitoring#setup-prometheus-tsdb
 
-For Grafana set up, run the below command:
+4) For Grafana set up, run the below command:
 ```kubectl -n monitoring apply -f utils/grafana/```
+
+5) Incase you need to change any default Prometheus / Grafanaconfigurations:
 ```kubectl get configmaps -n monitoring```
 ```kubectl get configmaps prometheus-configmap -n monitoring -o yaml | less```
 
-Login with default credentials in Grafana: admin/admin. By default, choose the default Sock-shop dashboard that is pre-available in grafana.
+6) List the pods and services:
+```kubectl get pods -n monitoring```
+```kubectl get svc -n monitoring```
+
+7) Open the Grafana URL with port number 3000. Login with default credentials in Grafana: admin/admin. By default, choose the default Sock-shop dashboard that is pre-available in grafana.
 In Grafana -> click settings on top right -> Annotation -> LitmusChaos_Metrics:
 Replace the search expression: litmuschaos_cluster_scoped_awaited_experiments{app="chaos-exporter", job="litmus/chaos-exporter"}
 
