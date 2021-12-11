@@ -9,7 +9,7 @@
 
 ```eksctl create cluster --name sockshop-eks --version 1.21 --region us-east-2 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 3```
 
-4) Ensure all the required ports like 3000 (Grafana), 9091 (Prometheus), 9001 (Chaos front end portal), 9002 (Chaos portal service), 80 (sock-shop) are opened under AWS Security Groups - Inbound rules
+4) Ensure all the required ports like 3000 (Grafana), 9090 (Prometheus), 9091 (Chaos front end portal), 9002 (Chaos portal service), 80 (sock-shop) are opened under AWS Security Groups - Inbound rules
 5) Install git using the command ```sudo yum install git```
 6) Ensure to clean up / decomission all the AWS resources once the experiments are completed (Refer Section 4), as it may incur signficant costs if left running
 
