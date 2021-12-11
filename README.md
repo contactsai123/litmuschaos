@@ -40,7 +40,7 @@ Litmus is an open source Chaos Engineering platform that enables teams to identi
 2)	Create a new namespace called litmus:
 ```kubectl create namespace litmus```
 3)	Update both the frontend-service and litmusportal-server-service to LoadBalancer
-```kubectl apply -f limus-2.3.0.yaml```
+```kubectl apply -f litmus-2.3.0.yaml```
 4)	List the litmus pods and services:
 ```kubectl get pods -n litmus```
 ```kubectl get svc -n litmus```
